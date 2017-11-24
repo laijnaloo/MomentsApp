@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<Moments.Models.Login>
+
+@Styles.Render("~/Content/LoginPage.css")
+@Styles.Render("~/Content/Site.css")
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <div class="row">
+        <div class="loginBlock centerBlock">
+            <h1 class="darkGreenText headerCss">Moments</h1><br>
+
+            <label>
+                @{
+                    if (Request.Params["falseLogin"] == "true")
+                    {
+                        <p style="color: red">*Password or username is incorrect</p>
+                    }
+                    else if (Request.Params["missInfo"] == "true")
+                    {
+                        <p style="color: red">*You have to write both username and password</p>
+                    }
+                }
+            </label>
+
+            <form class="centerBlock" action="/Logins/PasswordCheck" method="post">
+                <input class="form-control centerBlock" type="text" name="user" placeholder="Username"> <br />
+                <input class="form-control centerBlock" type="password" name="pass" placeholder="Password"><br />
+                <input type="submit" name="login" class="btn greenButton centerBlock btn-block" value="Sign in">
+            </form>
+
+            <div class="login-help rightBlock">
+                @Html.ActionLink("Forgot Password", "NewPassword", new { @class = "darkGreenText linkText" })
+            </div>
+        </div>
+    </div>
+

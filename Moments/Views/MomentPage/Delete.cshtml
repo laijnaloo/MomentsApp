@@ -1,0 +1,78 @@
+﻿@model Moments.Models.Moments
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h1 class="darkGreenText headerCss">Moments</h1><br>
+<p class="userName">by @System.Web.HttpContext.Current.Session["UserName"].ToString()</p> 
+
+<h3 class="editText text-center">Are you sure you want to delete this?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Titel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titel)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+            <dt style="display: none">
+                @Html.DisplayNameFor(model => model.Login.Username)
+            </dt>
+
+            <dd style="display: none">
+                @Html.DisplayFor(model => model.Login.Username)
+            </dd>
+
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Place1.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place1.Country)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="text-center">
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn crudButtons" />
+
+            </div>
+        </div>
+        <br />
+        <div>
+            @Html.ActionLink("Back to Moments", "Index", new RouteValueDictionary { { "item.Id", Model.Id } }, new Dictionary<String, Object> { { "class", "editText" } })
+        </div>
+    }
+</div>

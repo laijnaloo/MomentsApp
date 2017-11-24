@@ -1,0 +1,10 @@
+﻿/* Set padding to keep content from hitting the edges */
+
+.loginBlock {
+    width: 50%;
+}
+
+.rightBlock {
+    text-align: right;
+    padding-right: 2%;
+}

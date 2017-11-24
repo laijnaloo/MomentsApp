@@ -1,0 +1,5 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    width: 40%;
+    background-color: white;
+}

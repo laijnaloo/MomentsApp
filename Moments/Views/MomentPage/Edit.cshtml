@@ -1,0 +1,81 @@
+﻿@model Moments.Models.Moments
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1 class="darkGreenText headerCss">Moments</h1><br>
+<p class="userName">by @System.Web.HttpContext.Current.Session["UserName"].ToString()</p> 
+
+<div class="formCentering">
+     @using (Html.BeginForm()) { @Html.AntiForgeryToken()    
+         <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group" style="display: none">
+                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "editText control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Titel, htmlAttributes: new { @class = "editText control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Titel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Titel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "editText control-label col-md-2 relativePosition" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @rows = "5" })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group" style="display: none">
+                    @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "editText control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "editText control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Place, "Place", htmlAttributes: new { @class = "editText control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Place", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn crudButtons" />
+                    </div>
+                </div>
+            </div>
+            }
+    </div>
+
+<div>
+    @Html.ActionLink("Back to Moment", "Index", new RouteValueDictionary { { "item.Id", Model.Id } }, new Dictionary<String, Object> { { "class", "editText" } })
+</div>
+
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

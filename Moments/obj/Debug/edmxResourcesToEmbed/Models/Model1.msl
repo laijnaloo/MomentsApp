@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MomentsModelStoreContainer" CdmEntityContainer="MomentsEntities1">
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="MomentsModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metadata">
+      <EntityTypeMapping TypeName="MomentsModel.Metadata">
+        <MappingFragment StoreEntitySet="Metadata">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DC_Title" ColumnName="DC.Title" />
+          <ScalarProperty Name="DC_Description" ColumnName="DC.Description" />
+          <ScalarProperty Name="DC_Creator" ColumnName="DC.Creator" />
+          <ScalarProperty Name="DC_Publisher" ColumnName="DC.Publisher" />
+          <ScalarProperty Name="DC_Keywords" ColumnName="DC.Keywords" />
+          <ScalarProperty Name="DC_Type" ColumnName="DC.Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Moments">
+      <EntityTypeMapping TypeName="MomentsModel.Moments">
+        <MappingFragment StoreEntitySet="Moments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Place">
+      <EntityTypeMapping TypeName="MomentsModel.Place">
+        <MappingFragment StoreEntitySet="Place">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

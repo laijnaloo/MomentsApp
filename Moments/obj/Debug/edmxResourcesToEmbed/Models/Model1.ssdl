@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MomentsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Metadata">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DC.Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DC.Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DC.Creator" Type="int" Nullable="false" />
+    <Property Name="DC.Publisher" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DC.Keywords" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DC.Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Moments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="int" Nullable="false" />
+    <Property Name="Titel" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="100" />
+    <Property Name="Date" Type="varchar" MaxLength="20" />
+    <Property Name="Place" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Tbl_Metadata_Tbl_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="1" />
+    <End Role="Metadata" Type="Self.Metadata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Metadata">
+        <PropertyRef Name="DC.Creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Moments_Tbl_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="1" />
+    <End Role="Moments" Type="Self.Moments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Moments">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Moments_Tbl_Place">
+    <End Role="Place" Type="Self.Place" Multiplicity="1" />
+    <End Role="Moments" Type="Self.Moments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Place">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Moments">
+        <PropertyRef Name="Place" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MomentsModelStoreContainer">
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metadata" EntityType="Self.Metadata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Moments" EntityType="Self.Moments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Place" EntityType="Self.Place" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Metadata_Tbl_Login" Association="Self.FK_Tbl_Metadata_Tbl_Login">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Metadata" EntitySet="Metadata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Moments_Tbl_Login" Association="Self.FK_Tbl_Moments_Tbl_Login">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Moments" EntitySet="Moments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Moments_Tbl_Place" Association="Self.FK_Tbl_Moments_Tbl_Place">
+      <End Role="Place" EntitySet="Place" />
+      <End Role="Moments" EntitySet="Moments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

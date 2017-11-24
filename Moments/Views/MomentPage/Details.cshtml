@@ -1,0 +1,66 @@
+﻿@model Moments.Models.Moments
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 class="darkGreenText headerCss">Moments</h1><br>
+<p class="userName">by @System.Web.HttpContext.Current.Session["UserName"].ToString()</p> 
+
+
+<div>
+    <dl class="dl-horizontal">
+            <dt class="editText">
+                @Html.DisplayNameFor(model => model.Titel)
+            </dt>
+
+
+            <dd>
+                @Html.DisplayFor(model => model.Titel)
+            </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Login.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login.Username)
+        </dd>
+
+        <dt class="editText">
+            @Html.DisplayNameFor(model => model.Place1.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place1.Country)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back to Moment", "Index", new RouteValueDictionary { { "item.Id", Model.Id } }, new Dictionary<String, Object> { { "class", "editText" } })
+</div>

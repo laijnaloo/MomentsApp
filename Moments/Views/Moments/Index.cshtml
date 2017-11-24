@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Moments.Models.Moments>
+@Styles.Render("~/Content/Stream.css")
+@Styles.Render("~/Content/Site.css")
+@using System.Data.Entity;
+@using System.Linq;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1 class="darkGreenText headerCss">Moments</h1><br>
+<p class="userName">by @System.Web.HttpContext.Current.Session["UserName"].ToString()</p> 
+
+<br />
+<div class="addNewBox">
+    <br />
+    @Html.ActionLink("Do you want to add a new moment?", "Create", null, new { @class= "addText centerBlock"})
+
+    <br />
+</div> <br />
+
+@foreach (var item in Model.OrderByDescending(s => s.Id))
+{
+    <form action="~/MomentPage/Index" method="get">
+        <div class="itemBoxStream">
+            <img src="@Html.DisplayFor(modelItem => item.Image)" class="imagesStream" alt="Image in stream"/><br /><br />
+            <p class="headlineStream" >@Html.DisplayFor(modelItem => item.Titel)<br /></p>
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." name="item.Id" type="hidden" value=@item.Id />
+
+            
+
+            <input type="submit" class="btn greenButton centerBlock btn-block" value="Read more...">
+
+            <br /><br />
+        </div>
+    </form>
+    <br />
+}
+

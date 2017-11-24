@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Moments.Models.Metadata>
+
+@foreach (var item in Model) {
+<meta name="@Html.DisplayNameFor(model => model.DC_Keywords)" content="@Html.DisplayFor(model => item.DC_Keywords)" />
+
+<!-- Dublin Core meta data -->
+<meta name="@Html.DisplayNameFor(model => model.DC_Title)" content="@Html.DisplayFor(model => item.DC_Title)" />
+<meta name="DC_Creator" content="@Html.DisplayFor(model => item.Login.Username)" />
+<meta name=" @Html.DisplayNameFor(model => model.DC_Publisher)" content=" @Html.DisplayFor(model => item.DC_Publisher)" />
+<meta name="@Html.DisplayNameFor(model => model.DC_Description)" content=" @Html.DisplayFor(model => item.DC_Description)" />
+<meta name="@Html.DisplayNameFor(model => model.DC_Type)" content="@Html.DisplayFor(model => item.DC_Type)" />
+
+}

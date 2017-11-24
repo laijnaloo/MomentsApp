@@ -1,0 +1,179 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    Background-color: #dcfcf1;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    width: 40%;
+    background-color: white;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.greenButton {
+    background-color: #88AFA2;
+    color: white;
+}
+
+    .greenButton:hover {
+        background-color: #789a8f;
+        color: white;
+    }
+
+
+.userName {
+    margin-top: -7%;
+    color: #88AFA2;
+    text-align:center;
+}
+
+.darkGreenText {
+    color: #AF8176;
+}
+
+.linkText:hover {
+    color: #789a8f;
+    text-decoration: underline;
+}
+
+.centerBlock {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@font-face {
+    font-family: "Dandeleon";
+    src: url(../fonts/DandeleonVintageDemo.ttf) format("truetype");
+}
+
+p.customfont {
+    font-family: "Dandeleon";
+}
+
+.headerCss {
+    font-family: Dandeleon;
+    text-align: center;
+    font-size: 5em;
+}
+
+.imagesStream {
+    width: 100%;
+    height: auto;
+}
+
+.itemBoxStream {
+    border-bottom: 1px solid #dddddd;
+}
+
+.headlineStream {
+    color: #AF8176;
+    text-align: center;
+    font-size: 2em;
+}
+
+.addNewBox {
+    border-style: dashed;
+    border-color: white;
+    background-color: #dddddd;
+}
+
+.addText {
+    text-align: center;
+    color: #88AFA2;
+    font-size: 1.2em;
+}
+
+    .addText:hover {
+        color: #789a8f;
+        text-decoration: underline;
+    }
+
+.infoText {
+    text-align: center;
+    color: #88AFA2;
+    font-size: 0.8em;
+    margin-bottom: 0px;
+}
+
+.centerText {
+    text-align: center;
+  
+}
+
+.editText {
+    color: #AF8176;
+}
+
+
+editText:hover {
+    color: #7d5c54;
+}
+
+editText a:hover {
+    color: #7d5c54;
+}
+
+a {
+    color:#7d5c54;
+}
+
+a:hover {
+    color: #7d5c54;
+} 
+
+.crudButtons {
+    color: #ffffff;
+    background-color: #AF8176;
+    border-color: #ba897d;
+    margin-bottom: 1%;
+}
+
+.downloadText{
+    float: right;
+    margin-top:1%;
+    font-size: 0.8em;
+}
+
+.itemBottom {
+    border-bottom: none;
+}
+
+form {
+
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.formCentering {
+    display: inline-block;
+    text-align: center;
+    width: 100%
+}
+
+.relativePosition {
+    position: relative;
+    right: 45px;
+}
+
+.headerText {
+    color: #88AFA2;
+}
+
